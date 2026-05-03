@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenyaLinx/nodejs-hw.git"
+  },
+  "keywords": [],
+  "author": "Yevhenii Oliinyk <sportpit2020@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenyaLinx/nodejs-hw/issues"
+  },
+  "homepage": "https://github.com/JenyaLinx/nodejs-hw#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "pino-http": "^10.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.0.0"
+  }
+}
