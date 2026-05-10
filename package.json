@@ -8,29 +8,22 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JenyaLinx/nodejs-hw.git"
-  },
   "keywords": [],
-  "author": "Yevhenii Oliinyk <sportpit2020@gmail.com>",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JenyaLinx/nodejs-hw/issues"
-  },
-  "homepage": "https://github.com/JenyaLinx/nodejs-hw#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.0.0",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "pino-http": "^10.5.0"
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.19.2",
+    "pino-http": "^11.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "eslint": "^9.39.4",
-    "globals": "^17.6.0",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.4.0",
     "nodemon": "^3.1.10",
-    "pino-pretty": "^13.1.3",
-    "prettier": "^3.0.0"
+    "pino-pretty": "^13.1.2"
   }
 }
