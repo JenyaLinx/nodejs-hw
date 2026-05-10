@@ -1,7 +1,15 @@
-export const errorHandler = (err, req, res) => {
-  const status = err.status || 500;
+/* eslint-disable no-unused-vars */
 
-  res.status(status).json({
+import createHttpError from 'http-errors';
+
+export const errorHandler = (err, req, res, next) => {
+  if (err instanceof createHttpError.HttpError) {
+    return res.status(err.status).json({
+      message: err.message,
+    });
+  }
+
+  res.status(500).json({
     message: err.message || 'Something went wrong',
   });
 };
