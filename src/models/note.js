@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 import { TAGS } from '../constants/tags.js';
 
 const noteSchema = new mongoose.Schema(
@@ -9,13 +8,11 @@ const noteSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-
     content: {
       type: String,
       default: '',
       trim: true,
     },
-
     tag: {
       type: String,
       enum: TAGS,
@@ -29,7 +26,8 @@ const noteSchema = new mongoose.Schema(
 );
 
 noteSchema.index({ title: 'text', content: 'text' });
+noteSchema.index({ tag: 1 });
 
-const Note = mongoose.model('Note', noteSchema);
+const Note = mongoose.model('note', noteSchema);
 
-export default Note;
+export { Note };
