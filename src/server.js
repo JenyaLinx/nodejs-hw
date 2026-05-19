@@ -7,6 +7,7 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import { errors } from 'celebrate';
 
 import notesRoutes from './routes/notesRoutes.js';
 
@@ -26,10 +27,12 @@ const bootstrap = async () => {
   app.use(logger);
 
   app.use(notesRoutes);
+  
+app.use(notFoundHandler);
 
-  app.use(notFoundHandler);
+app.use(errors());
 
-  app.use(errorHandler);
+app.use(errorHandler);
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
