@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { celebrate, Segments } from 'celebrate';
+import { celebrate } from 'celebrate';
 
 import {
   loginUser,
@@ -17,17 +17,13 @@ const router = Router();
 
 router.post(
   '/auth/register',
-  celebrate({
-    [Segments.BODY]: registerUserSchema,
-  }),
+  celebrate(registerUserSchema),
   registerUser,
 );
 
 router.post(
   '/auth/login',
-  celebrate({
-    [Segments.BODY]: loginUserSchema,
-  }),
+  celebrate(loginUserSchema),
   loginUser,
 );
 
