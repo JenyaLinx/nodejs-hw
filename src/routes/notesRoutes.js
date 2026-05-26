@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { celebrate } from 'celebrate';
 
 import {
   getAllNotes,
@@ -22,35 +23,35 @@ const router = Router();
 router.get(
   '/notes',
   authenticate,
-  getAllNotesSchema,
+  celebrate(getAllNotesSchema),
   getAllNotes,
 );
 
 router.get(
   '/notes/:noteId',
   authenticate,
-  noteIdSchema,
+  celebrate(noteIdSchema),
   getNoteById,
 );
 
 router.post(
   '/notes',
   authenticate,
-  createNoteSchema,
+  celebrate(createNoteSchema),
   createNote,
 );
 
 router.delete(
   '/notes/:noteId',
   authenticate,
-  noteIdSchema,
+  celebrate(noteIdSchema),
   deleteNote,
 );
 
 router.patch(
   '/notes/:noteId',
   authenticate,
-  updateNoteSchema,
+  celebrate(updateNoteSchema),
   updateNote,
 );
 
