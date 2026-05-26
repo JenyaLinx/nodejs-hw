@@ -20,38 +20,42 @@ import { authenticate } from '../middleware/authenticate.js';
 
 const router = Router();
 
+const validate = (schema) => {
+  return typeof schema === 'function' ? schema : celebrate(schema);
+};
+
 router.get(
   '/notes',
   authenticate,
-  celebrate(getAllNotesSchema),
+  validate(getAllNotesSchema),
   getAllNotes,
 );
 
 router.get(
   '/notes/:noteId',
   authenticate,
-  celebrate(noteIdSchema),
+  validate(noteIdSchema),
   getNoteById,
 );
 
 router.post(
   '/notes',
   authenticate,
-  celebrate(createNoteSchema),
+  validate(createNoteSchema),
   createNote,
 );
 
 router.delete(
   '/notes/:noteId',
   authenticate,
-  celebrate(noteIdSchema),
+  validate(noteIdSchema),
   deleteNote,
 );
 
 router.patch(
   '/notes/:noteId',
   authenticate,
-  celebrate(updateNoteSchema),
+  validate(updateNoteSchema),
   updateNote,
 );
 
