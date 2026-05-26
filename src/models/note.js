@@ -8,15 +8,23 @@ const noteSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+
     content: {
       type: String,
       default: '',
       trim: true,
     },
+
     tag: {
       type: String,
       enum: TAGS,
       default: 'Todo',
+    },
+
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   {
