@@ -13,6 +13,7 @@ import { errors } from 'celebrate';
 
 import notesRoutes from './routes/notesRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -32,6 +33,8 @@ const bootstrap = async () => {
   app.use(logger);
 
   app.use(authRoutes);
+
+  app.use(userRoutes);
 
   app.use(notesRoutes);
 
