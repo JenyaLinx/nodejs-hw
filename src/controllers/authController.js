@@ -108,7 +108,7 @@ export const logoutUser = async (req, res) => {
   res.clearCookie('accessToken');
   res.clearCookie('refreshToken');
 
-  res.sendStatus(204);
+  res.status(204).end();
 };
 
 export const requestResetEmail = async (req, res) => {
@@ -152,6 +152,7 @@ export const requestResetEmail = async (req, res) => {
 
   try {
     await sendEmail({
+      from: process.env.SMTP_FROM,
       to: user.email,
       subject: 'Reset your password',
       html,
